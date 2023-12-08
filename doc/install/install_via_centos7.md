@@ -27,8 +27,8 @@ This guide builds a server using the [CentOS 7 Minimal ISO](http://isoredirect.c
 ```bash
 
 # pre-configure custom defaults:
-export IP_ADDR=172.16.17.18
-export _HOSTNAME=aio.kazoo.com
+export IP_ADDR=10.10.100.35
+export _HOSTNAME=kazoo.vissoft.vn
 export TOKEN=SIGNALWIRE_TOKEN
 
 # You can find the latest Release RPM here: https://packages.2600hz.com/centos/7/stable/2600hz-release/
@@ -154,7 +154,7 @@ sed -i "s/kamailio\.2600hz\.com/${_HOSTNAME}/g" /etc/kazoo/kamailio/local.cfg
 
 # Update the IP addresses
 sed -i "s/127\.0\.0\.1/${IP_ADDR}/g" /etc/kazoo/kamailio/local.cfg
-
+sed -i "s/MY_IP_ADDRESS/${IP_ADDR}/g" /etc/kazoo/kamailio/local.cfg
 # Disable Kamailio bundled systemctl script
 systemctl disable kamailio
 
